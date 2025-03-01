@@ -1,340 +1,915 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <title>Banana Fiber Innovation | D.Y. Patil</title>
-    <link rel="preconnect" href="https://fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        :root {
-            --primary: #2A5C82;
-            --secondary: #3DA9FC;
-            --accent: #FF6B6B;
-            --light: #F8F9FA;
-            --dark: #2D3142;
-            --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
-            --glass: rgba(255, 255, 255, 0.1);
-            --shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
-            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-        }
+  <meta charset="UTF-8">
+  <title>Banana Fiber Innovation | D.Y. Patil</title>
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <!-- Particles.js CDN for particle background effect -->
+  <script src="https://cdn.jsdelivr.net/npm/particles.js@2.0.0/particles.min.js"></script>
+  <style>
+    /* Variables */
+    :root {
+      --primary: #2A5C82;
+      --secondary: #3DA9FC;
+      --accent: #FF6B6B;
+      --light: #F8F9FA;
+      --dark: #2D3142;
+      --gradient: linear-gradient(135deg, var(--primary), var(--secondary));
+      --glass: rgba(255, 255, 255, 0.1);
+      --shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+      --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: var(--light);
+      color: var(--dark);
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+    /* Hero Section with Particles Background */
+    .hero {
+      position: relative;
+      padding: 3rem 1rem 15rem;
+      text-align: center;
+      background: var(--gradient);
+      overflow: hidden;
+      animation: fadeIn 1s ease-out;
+    }
+    /* Particle container */
+    #particles-js {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+      z-index: 1;
+      pointer-events: none;
+    }
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    .hero h1 {
+      position: relative;
+      z-index: 3;
+      color: white;
+      font-size: 3rem;
+      font-weight: 700;
+      margin: 2rem auto;
+      max-width: 900px;
+      text-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
+      animation: textPop 1s ease-out;
+    }
+    @keyframes textPop {
+      0% { opacity: 0; transform: translateY(50px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    .logo {
+      position: relative;
+      z-index: 3;
+      width: 200px;
+      filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.2));
+      border: 3px solid var(--primary);
+      border-radius: 10px;
+      transition: transform 0.3s, border 0.3s;
+      margin: 1rem auto;
+      display: block;
+    }
+    .logo:hover {
+      transform: scale(1.05);
+      border-color: var(--accent);
+    }
+    /* Navigation */
+    .nav-tabs {
+      position: relative;
+      z-index: 3;
+      display: flex;
+      justify-content: center;
+      gap: 1.5rem;
+      margin-top: 3rem;
+    }
+    .nav-item {
+      color: white;
+      padding: 1.2rem 2.5rem;
+      border-radius: 15px;
+      transition: var(--transition);
+      background: var(--glass);
+      backdrop-filter: blur(12px);
+      border: 2px solid rgba(255, 255, 255, 0.3);
+      font-weight: 600;
+      cursor: pointer;
+      box-shadow: var(--shadow);
+      position: relative;
+    }
+    .nav-item::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border-radius: 15px;
+      background: var(--gradient);
+      z-index: -1;
+      opacity: 0;
+      transition: var(--transition);
+    }
+    .nav-item:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+    }
+    .nav-item.active {
+      background: var(--accent);
+      border-color: var(--accent);
+      transform: translateY(-3px);
+    }
+    /* Container for the Applications Section */
+.research-container {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
+/* Intro Section */
+.research-intro {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+.research-intro .main-heading {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--primary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+.research-intro p {
+  font-size: 1.2rem;
+  color: var(--dark);
+  max-width: 900px;
+  margin: 0 auto;
+}
 
-        body {
-            font-family: 'Poppins', sans-serif;
-            background: var(--light);
-            color: var(--dark);
-            line-height: 1.7;
-            overflow-x: hidden;
-        }
+/* Application Card Styles */
+.application-card {
+  background: linear-gradient(135deg, #f9f9f9, #ffffff);
+  border-radius: 12px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.3s, box-shadow 0.3s;
+}
+.application-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
+.application-card h4 {
+  color: var(--primary); /* Changed from green to primary color */
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  border-bottom: 2px solid #ccc;
+  padding-bottom: 0.5rem;
+}
+.application-content {
+  margin-left: 1rem;
+}
+.application-subsection {
+  margin-bottom: 1.5rem;
+}
+.application-subsection h5 {
+  color: var(--secondary); /* Changed from green to secondary color */
+  font-size: 1.4rem;
+  margin-bottom: 0.8rem;
+  transition: color 0.3s;
+}
+.application-subsection h5:hover {
+  color: var(--accent);
+}
+.application-subsection ul {
+  list-style: disc;
+  padding-left: 1.5rem;
+  font-size: 1.1rem;
+  color: var(--dark);
+  line-height: 1.5;
+}
 
-        /* Hero Section */
-        .hero {
-            position: relative;
-            padding: 3rem 1rem 15rem;
-            text-align: center;
-            background: var(--gradient);
-            overflow: hidden;
-        }
+/* Conclusion Section */
+.conclusion-section {
+  background: #f5f9f5;
+  border-left: 4px solid var(--primary); /* Use primary color instead of green */
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-top: 2rem;
+  font-size: 1.1rem;
+  color: var(--dark);
+  line-height: 1.6;
+}
 
-        .hero h1 {
-            position: relative;
-            z-index: 4;
-            color: white;
-            font-size: 3rem;
-            font-weight: 700;
-            margin: 2rem auto;
-            max-width: 900px;
-            text-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-            animation: textPop 1s ease-out;
-        }
-
-        .logo {
-            width: 200px;
-            filter: drop-shadow(0 4px 12px rgba(0, 0, 0, 0.2));
-        }
-
-        /* Navigation */
-        .nav-tabs {
-            display: flex;
-            justify-content: center;
-            gap: 1.5rem;
-            margin-top: 3rem;
-            position: relative;
-            z-index: 4;
-        }
-
-        .nav-item {
-            color: white;
-            padding: 1.2rem 2.5rem;
-            border-radius: 15px;
-            transition: var(--transition);
-            background: var(--glass);
-            backdrop-filter: blur(12px);
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            font-weight: 600;
-            cursor: pointer;
-            box-shadow: var(--shadow);
-        }
-
-        .nav-item::before {
-            content: "";
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            border-radius: 15px;
-            background: var(--gradient);
-            z-index: -1;
-            opacity: 0;
-            transition: var(--transition);
-        }
-
-        .nav-item:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
-        }
-
-        .nav-item.active {
-            background: var(--accent);
-            border-color: var(--accent);
-            transform: translateY(-3px);
-        }
-
-        /* Main Content */
-        .tab-content {
-            max-width: 1200px;
-            margin: -10rem auto 5rem;
-            padding: 4rem 2rem;
-            background: white;
-            border-radius: 30px;
-            box-shadow: var(--shadow);
-            position: relative;
-            z-index: 2;
-            display: none;
-        }
-
-        .tab-content.active {
-            display: block;
-            animation: contentAppear 1s ease-out;
-        }
-
-        .section-title {
-            color: var(--primary);
-            font-size: 2.8rem;
-            margin-bottom: 3rem;
-            position: relative;
-            padding-left: 2rem;
-        }
-
-        .section-title::before {
-            content: "";
-            position: absolute;
-            left: 0;
-            top: 50%;
-            transform: translateY(-50%);
-            height: 80%;
-            width: 8px;
-            background: var(--accent);
-            border-radius: 4px;
-        }
-
-        /* Research Sections */
-        .research-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 3rem;
-            margin: 4rem 0;
-        }
-
-        .research-card {
-            padding: 2.5rem;
-            border-radius: 20px;
-            background: white;
-            transition: var(--transition);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-            position: relative;
-            overflow: hidden;
-        }
-
-        .research-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
-        }
-
-        .card-title {
-            color: var(--primary);
-            font-size: 1.8rem;
-            margin-bottom: 1.5rem;
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-        }
-
-        .card-title i {
-            color: var(--accent);
-            font-size: 1.5rem;
-        }
-
-        /* About Section */
-        .profile-section {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 4rem;
-            align-items: center;
-            padding: 4rem;
-            background: var(--gradient);
-            border-radius: 30px;
-            color: white;
-        }
-
-        .profile-img {
-            width: 100%;
-            max-width: 300px;
-            height: 300px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin: 0 auto;
-            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
-            border: 6px solid rgba(255, 255, 255, 0.3);
-        }
-
-        .profile-content h2 {
-            font-size: 2.5rem;
-            margin-bottom: 1.5rem;
-            position: relative;
-        }
-
-        .profile-content h2::after {
-            content: "";
-            position: absolute;
-            bottom: -10px;
-            left: 0;
-            width: 60px;
-            height: 4px;
-            background: var(--accent);
-        }
-
-        /* Animations */
-        @keyframes textPop {
-            0% {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @keyframes contentAppear {
-            0% {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-
-            100% {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        @media (max-width: 992px) {
-            .hero h1 {
-                font-size: 2.5rem;
-            }
-
-            .nav-tabs {
-                flex-wrap: wrap;
-            }
-
-            .profile-section {
-                grid-template-columns: 1fr;
-                text-align: center;
-            }
-
-            .profile-content h2::after {
-                left: 50%;
-                transform: translateX(-50%);
-            }
-        }
-    </style>
+    /* Main Content */
+    .tab-content {
+      max-width: 1200px;
+      margin: -10rem auto 5rem;
+      padding: 4rem 2rem;
+      background: white;
+      border-radius: 30px;
+      box-shadow: var(--shadow);
+      position: relative;
+      z-index: 2;
+      display: none;
+      animation: contentAppear 1s ease-out;
+    }
+    .tab-content.active {
+      display: block;
+    }
+    @keyframes contentAppear {
+      0% { opacity: 0; transform: translateY(50px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+    .section-title {
+      color: var(--primary);
+      font-size: 2.8rem;
+      margin-bottom: 3rem;
+      position: relative;
+      padding-left: 2rem;
+      animation: slideIn 0.8s ease-out;
+    }
+    @keyframes slideIn {
+      from { transform: translateX(-50px); opacity: 0; }
+      to { transform: translateX(0); opacity: 1; }
+    }
+    .section-title::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      height: 80%;
+      width: 8px;
+      background: var(--accent);
+      border-radius: 4px;
+    }
+    /* Research Sections */
+    .research-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 3rem;
+      margin: 4rem 0;
+      animation: fadeIn 1s ease-out;
+    }
+    .research-card {
+      padding: 2.5rem;
+      border-radius: 20px;
+      background: white;
+      transition: var(--transition);
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+      position: relative;
+      overflow: hidden;
+    }
+    .research-card:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+    }
+    .card-title {
+      color: var(--primary);
+      font-size: 1.8rem;
+      margin-bottom: 1.5rem;
+      display: flex;
+      align-items: center;
+      gap: 1rem;
+    }
+    .card-title i {
+      color: var(--accent);
+      font-size: 1.5rem;
+    }
+    /* About Section */
+    .profile-section {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+      padding: 4rem;
+      background: var(--gradient);
+      border-radius: 30px;
+      color: white;
+      animation: fadeIn 1s ease-out;
+    }
+    .profile-img {
+      width: 100%;
+      max-width: 300px;
+      height: 300px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin: 0 auto;
+      box-shadow: 0 12px 24px rgba(0, 0, 0, 0.2);
+      border: 6px solid rgba(255, 255, 255, 0.3);
+    }
+    .profile-content h2 {
+      font-size: 2.5rem;
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+    .profile-content h2::after {
+      content: "";
+      position: absolute;
+      bottom: -10px;
+      left: 0;
+      width: 60px;
+      height: 4px;
+      background: var(--accent);
+    }
+    .disclaimer-section {
+    margin: 1rem auto;
+    max-width: 800px;
+    padding: 1.5rem 2rem;
+    background: linear-gradient(135deg, #ffffff, #ffffff) padding-box,
+                linear-gradient(45deg, var(--accent), #ffb3b3) border-box;
+    border: 4px solid transparent;
+    border-radius: 12px;
+    text-align: center;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s, box-shadow 0.3s;
+  }
+  .disclaimer-section h3 {
+    font-weight: bold;
+    color: var(--accent);
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-size: 1.8rem;
+    transition: text-shadow 0.3s;
+  }
+  .disclaimer-section p {
+    font-weight: 600;
+    font-size: 1.3rem;
+    color: var(--dark);
+    line-height: 1.5;
+    transition: text-shadow 0.3s;
+  }
+  .disclaimer-section:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+  }
+  .disclaimer-section:hover h3,
+  .disclaimer-section:hover p {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+  }
+    /* Responsive Adjustments */
+    @media (max-width: 992px) {
+      .hero h1 { font-size: 2.5rem; }
+      .nav-tabs { flex-wrap: wrap; }
+      .profile-section { grid-template-columns: 1fr; text-align: center; }
+      .profile-content h2::after { left: 50%; transform: translateX(-50%); }
+    }
+  </style>
 </head>
-
 <body>
-    <header class="hero">
-        <img src="images/dypatil.jpg" alt="College Logo" class="logo">
-        <h1>Undiscovered 2nd Life of Natural Banana Pseudostem Fibers</h1>
-        <nav class="nav-tabs">
-            <button class="nav-item active" onclick="openTab(event, 'overview')">Overview</button>
-            <button class="nav-item" onclick="openTab(event, 'extraction')">Extraction</button>
-            <button class="nav-item" onclick="openTab(event, 'uses')">Applications</button>
-            <button class="nav-item" onclick="openTab(event, 'about')">Researcher</button>
-            <button class="nav-item" onclick="openTab(event, 'Reference')">Reference</button>
-        </nav>
-    </header>
-    <!-- Overview Tab -->
-    <section id="overview" class="tab-content active">
-        <h2 class="section-title">Undiscovered Potential</h2>
-
+  <header class="hero">
+     <div id="particles-js"></div>
+    <img src="images/dypatil.jpg" alt="College Logo" class="logo">
+    <h1>Undiscovered 2nd Life of Natural Banana Pseudostem Fibers</h1>
+    <div class="disclaimer-section">
+      <h3>Disclaimer</h3>
+      <p>
+        This website is a student project created for a classroom assignment and is for educational purposes only. The content may not be fully accurate or up to date. Please refer to official sources for accurate details.
+      </p>
+    </div>
+    <nav class="nav-tabs">
+      <button class="nav-item active" onclick="openTab(event, 'overview')">Overview</button>
+      <button class="nav-item" onclick="openTab(event, 'properties')">Properties</button>
+      <button class="nav-item" onclick="openTab(event, 'extraction')">Extraction</button>
+      <button class="nav-item" onclick="openTab(event, 'uses')">Applications</button>
+      <button class="nav-item" onclick="openTab(event, 'about')">Researcher</button>
+      <button class="nav-item" onclick="openTab(event, 'Reference')">Reference</button>
+    </nav>
+  </header>
+  
+  <!-- Overview Tab -->
+   <main>
+  <section id="overview" class="tab-content active">
+    <h2 class="section-title">Undiscovered Potential</h2>
+    <div class="overview-content" style="margin: 20px 40px; line-height: 1.6;">
+      <p style="margin-bottom: 20px;">
+        <strong>Why is Banana pseudo stem fibers the best and the most effective ecofriendly way for water
+          filtration?</strong>
+      </p>
+      <p style="margin-bottom: 20px;">
+        To answer that, Banana plants are one of the most useful plants in the world. Almost every part of the plant—fruit,
+        peel, leaves, flower, and pseudo stem—can be used in various ways. The banana pseudo stem, which looks like a trunk,
+        plays a crucial role in transporting nutrients from the soil to the fruit. However, after the bananas are harvested,
+        the pseudo stem becomes waste biomass, as banana plants do not regrow after fruiting. Instead of letting this
+        biomass go to waste, scientists and industries are now exploring its potential, especially for fiber extraction.
+        Banana peels are generally considered to be waste usually thrown away, but in fact they have important benefits for
+        clearing water.
+      </p>
+      <p style="margin-bottom: 20px;">
+        The purpose of this following study will focus on the usage of banana pseudo stem fibers in the water filtration
+        process as well as study the various adsorption aspects of it. The pseudo stem, which is typically discarded as
+        agricultural waste after fruit harvesting, presents a valuable source of natural fiber with excellent mechanical,
+        chemical, and hydrophilic properties.
+      </p>
+      <p style="margin-bottom: 20px;">
+        The growing concerns over environmental pollution and the need for biodegradable alternatives to synthetic materials
+        have further fuelled research into the use of banana fiber in filtration and absorption processes. Every ton of
+        banana fruit harvested produces about four tons of biomass waste, including leaves, peels, and pseudo stems.
+        Traditionally, farmers either burn or dump this waste, which can lead to environmental problems like greenhouse gas
+        emissions and water pollution. However, banana pseudo stem fiber is proving to be an eco-friendly, biodegradable,
+        and highly useful material for many applications. With increasing environmental concerns and deforestation, banana
+        pseudo stem fiber is gaining attention as an alternative to wood-based fibers.
+      </p>
+      <p style="margin-bottom: 20px;">
+        As research and technology advance, this once-discarded material is proving to be a valuable resource for
+        sustainable industries and eco-friendly innovations. Banana fiber is gaining recognition as an efficient filtering
+        medium for both air and water. Its microporous nature enables it to retain particulate matter effectively. In water
+        purification, filters made from banana fiber help eliminate suspended solids, heavy metals, and organic pollutants.
+        Research indicates that banana fiber can effectively absorb harmful substances like dyes, lead, and cadmium from
+        wastewater, offering a cost-effective and sustainable alternative to synthetic filtration materials.
+      </p>
+      <p style="margin-bottom: 20px;">
+        <strong>Absorption Capabilities and Real-World Applications of Banana Fiber</strong><br>
+        Banana fiber is a natural powerhouse when it comes to absorption, making it an incredibly versatile material across
+        multiple industries. With its ability to retain moisture, absorb oils, and regulate humidity, banana fiber is being
+        used in everything from environmental cleanup to hygiene products and even sustainable agriculture.
+      </p>
+      <p style="margin-bottom: 20px;">
+        <strong>Most Widely Applicable Uses of Fibers for Absorption:</strong>
+      </p>
+      <p style="margin-bottom: 20px;">
+        <strong>1. Oil Spill Cleanup: A Natural Solution for Pollution</strong><br>
+        One of the most remarkable applications of banana fiber is in oil spill remediation. Since it has a high affinity
+        for hydrocarbons, banana fiber can effectively soak up oil from contaminated water surfaces, making it a
+        biodegradable alternative to synthetic oil-absorbing materials. Unlike traditional oil booms and pads made from
+        plastics, banana fiber naturally breaks down after use, reducing environmental impact.
+      </p>
+      <p style="margin-bottom: 20px;">
+        <strong>2. Hygiene and Medical Applications: Soft, Absorbent, and Eco-Friendly</strong><br>
+        Banana fiber’s moisture retention ability makes it an ideal material for the hygiene industry. It is used in:
+        <br>• Sanitary pads and diapers – Its absorbent nature keeps moisture locked in while allowing for breathability,
+        providing a comfortable and eco-conscious alternative to plastic-based hygiene products.
+        <br>• Medical dressings and wound care – The fiber’s ability to retain moisture while being lightweight and
+        breathable makes it a great choice for bandages, wound dressings, and gauze. This helps keep wounds clean and
+        promotes healing without causing skin irritation.
+      </p>
+      <p style="margin-bottom: 20px;">
+        <strong>3. Agriculture: Enhancing Soil Health and Crop Growth</strong><br>
+        Farmers are tapping into the benefits of banana fiber as a natural mulch material. When added to soil, it helps
+        with:
+        <br>• Moisture retention – By holding onto water, banana fiber helps prevent soil from drying out, reducing the need
+        for excessive irrigation.
+        <br>• Nutrient conservation – It locks in essential nutrients, ensuring plants have continuous access to minerals
+        for growth.
+        <br>• Soil erosion prevention – As a bio-mulch, it forms a protective layer over the soil, reducing runoff and soil
+        degradation, especially in dry or windy conditions.
+        <br>Additionally, banana fiber is being explored for soil remediation, where it helps absorb and neutralize harmful
+        substances from contaminated land, making it more fertile and safer for planting.
+      </p>
+      <p style="margin-bottom: 20px;">
+        <strong>4. Sustainable Packaging: Protecting Products Naturally</strong><br>
+        With growing concerns about plastic waste, banana fiber is emerging as a key material in eco-friendly packaging. Its
+        moisture-resistant properties help protect perishable goods like fruits, vegetables, and baked goods from excess
+        humidity and microbial contamination. Researchers are developing biodegradable food packaging using banana fiber,
+        aiming to extend the shelf life of fresh produce while reducing reliance on plastic.
+      </p>
+      <p style="margin-bottom: 20px;">
+        <strong>The Future of Absorbent Banana Fiber</strong><br>
+        With its impressive ability to trap moisture, absorb pollutants, and regulate humidity, banana fiber is rapidly
+        becoming a go-to material in industries looking for sustainable and effective solutions. Whether it's cleaning up
+        oil spills, improving soil health, or replacing plastic packaging, this natural and biodegradable fiber is proving
+        that it’s more than just agricultural waste—it’s a resource with immense potential for a greener future.
+      </p>
+      <p style="margin-bottom: 20px;">
+        When used in air filtration, banana fiber mats and composites capture fine dust, airborne pollutants, and microbes.
+        Additionally, their natural antibacterial properties make them particularly valuable in improving indoor air quality
+        in both industrial and household settings. Unlike synthetic filters, banana fiber-based options decompose naturally,
+        reducing environmental impact while maintaining efficiency.
+      </p>
+      <p style="margin-bottom: 20px;">
+        The process used is filtered coated water using gravel, sand, charcoal, palm fiber and the final filter layer is
+        banana peels that acts as a place to disinfect raw water against germs and bacteria still present in the water. The
+        results obtained indicate that water purification using banana peels meets the criteria for physical testing,
+        including water levels with a pH between 7.0–8.5, and does not interfere with the taste and smell of water.
+        Rainwater and river water can be used as cleaning water because the pH meets all requirements, but cannot be used as
+        clean water because bacteriologically all samples do not meet the drinking water standards.
+      </p>
+    </div>
+    </section>
+  
+  <!-- Properties Tab -->
+  <section id="properties" class="tab-content">
+    <h2 class="section-title">Properties</h2>
+    <div class="properties-content" style="margin: 20px 40px; line-height: 1.6;">
+      <p style="margin-bottom: 20px;">
+        Banana pseudo stem fiber is proving to be an incredible natural solution for water filtration. With concerns about
+        pollution and the need for sustainable alternatives, this fiber stands out due to its unique properties that allow
+        it to efficiently clean water while being completely biodegradable. Unlike synthetic filters, banana fiber offers
+        a renewable, cost-effective, and eco-friendly way to remove contaminants.
+      </p>
+      <p style="margin-bottom: 20px;">
+        Let’s dive into the key reasons why banana fiber is such an effective filtration material:
+      </p>
+      <p style="margin-bottom: 20px;">
+        <strong>1. Superior Water Absorption and Retention</strong><br>
+        Banana fiber has a remarkable ability to soak up and hold onto large amounts of water. This makes it highly
+        effective in capturing sediments, dirt, and other suspended particles, preventing them from passing through the
+        filter. Thanks to its natural capillary action, water flows smoothly through the fiber while trapping impurities
+        along the way.
+      </p>
+      <p style="margin-bottom: 20px;">
+        <strong>2. Porous Structure with a High Surface Area</strong><br>
+        One of the biggest strengths of banana fiber is its microporous nature. The tiny pores throughout the fiber create
+        a large surface area, which helps it absorb pollutants like heavy metals, dyes, and toxins. When converted into
+        activated carbon, its filtering capabilities become even more powerful, making it an excellent option for removing
+        finer contaminants.
+      </p>
+      <p style="margin-bottom: 20px;">
+        <strong>3. Natural Heavy Metal Adsorption</strong><br>
+        Heavy metals like lead (Pb), cadmium (Cd), and chromium (Cr) pose serious health risks when present in water.
+        Fortunately, banana fiber is packed with cellulose, hemicellulose, and lignin, which work together as natural
+        ion-exchangers to pull these harmful metals out of the water. Scientists have also found that treating banana
+        fiber with simple chemical processes (like acid or alkali treatments) can boost its ability to trap heavy metals,
+        making it even more effective.
+      </p>
+      <p style="margin-bottom: 20px;">
+        <strong>4. Built-in Antimicrobial and Biodegradable Properties</strong><br>
+        Unlike plastic-based filters, banana fiber is completely biodegradable, meaning it breaks down naturally without
+        harming the environment. But what’s even more impressive is that it has antimicrobial properties. Research
+        suggests that banana fiber can help prevent the growth of harmful bacteria, keeping filtered water cleaner for
+        longer.
+      </p>
+      <p style="margin-bottom: 20px;">
+        <strong>5. Strength, Durability, and Versatility</strong><br>
+        Even though banana fiber is lightweight, it’s surprisingly strong and durable. It holds up well during filtration
+        without easily breaking down or losing its structure. Additionally, it can be combined with other natural
+        materials like chitosan, biochar, or activated carbon to further enhance its performance. This makes it a
+        versatile material that can be tailored for different filtration needs.
+      </p>
+      <p style="margin-bottom: 20px;">
+        <strong>A Natural Solution for a Cleaner Future</strong><br>
+        With the world moving towards sustainable water purification, banana fiber is proving to be a low cost,
+        eco-friendly alternative that doesn’t sacrifice performance. Whether used in household water filters, industrial
+        wastewater treatment, or large-scale purification projects, this natural fiber has the potential to make clean
+        water accessible while reducing environmental waste.
+      </p>
+      <p style="margin-bottom: 20px;">
+        <strong>Key Properties:</strong><br>
+        1. Renewable and Sustainable – ecofriendly alternative to synthetic membrane<br>
+        2. Biodegradable – naturally decompose over time<br>
+        3. Low Cost – regions where banana is abundantly cultivated make an economical choice<br>
+        4. Mechanical Strength – Banana fibers have good mechanical strength and can withstand the mechanical stresses
+        associated with filtration processes.<br>
+        5. Chemical Resistance – Banana fibers have shown resistance to certain chemicals, which can be advantageous in
+        applications where the membrane may come into contact with corrosive substances.<br>
+        6. Pore Size Control – The structure of banana fibers can be manipulated to control the pore size of the
+        membrane.<br>
+        7. Biocompatibility – Banana fibers are generally biocompatible, making them suitable for certain biotechnology
+        and biomedical applications, such as blood filtration or protein separation.
+      </p>
+    </div>
+  </section>
+  
+  <!-- Extraction Tab -->
+  <section id="extraction" class="tab-content">
+    <h2 class="section-title">Extraction Process</h2>
+    <div class="extraction-content" style="margin: 20px 40px; line-height: 1.6;">
+    
+      <!-- Table -->
+      <table style="width:100%; border-collapse: collapse; margin-bottom: 30px;">
+        <thead>
+          <tr>
+            <th style="border: 1px solid #ccc; padding: 10px;">Component</th>
+            <th style="border: 1px solid #ccc; padding: 10px;">Percentage (%)</th>
+            <th style="border: 1px solid #ccc; padding: 10px;">Function in Filtration &amp; Absorption</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td style="border: 1px solid #ccc; padding: 10px;">Cellulose</td>
+            <td style="border: 1px solid #ccc; padding: 10px;">50–65%</td>
+            <td style="border: 1px solid #ccc; padding: 10px;">Provides a porous structure for water retention and
+              contaminant adsorption</td>
+          </tr>
+          <tr>
+            <td style="border: 1px solid #ccc; padding: 10px;">Hemicellulose</td>
+            <td style="border: 1px solid #ccc; padding: 10px;">15–25%</td>
+            <td style="border: 1px solid #ccc; padding: 10px;">Enhances water absorption capacity and ion-exchange
+              properties</td>
+          </tr>
+          <tr>
+            <td style="border: 1px solid #ccc; padding: 10px;">Lignin</td>
+            <td style="border: 1px solid #ccc; padding: 10px;">10–15%</td>
+            <td style="border: 1px solid #ccc; padding: 10px;">Contributes to fiber strength and antimicrobial properties
+            </td>
+          </tr>
+          <tr>
+            <td style="border: 1px solid #ccc; padding: 10px;">Pectin &amp; Waxes</td>
+            <td style="border: 1px solid #ccc; padding: 10px;">3–5%</td>
+            <td style="border: 1px solid #ccc; padding: 10px;">Improves water retention and helps in the removal of organic
+              contaminants</td>
+          </tr>
+          <tr>
+            <td style="border: 1px solid #ccc; padding: 10px;">Minerals &amp; Others</td>
+            <td style="border: 1px solid #ccc; padding: 10px;">1–5%</td>
+            <td style="border: 1px solid #ccc; padding: 10px;">Supports biodegradability and enhances structural integrity
+              in filtration setups</td>
+          </tr>
+        </tbody>
+      </table>
+      
+      <!-- Post-Table Content -->
+      <h3 style="margin-bottom: 15px;">How This Composition Affects Absorption Capabilities?</h3>
+      <ul style="margin-bottom: 20px; list-style: disc; padding-left: 20px;">
+        <li><strong>Hydrophilicity:</strong> The high cellulose and hemicellulose content allows banana fiber to absorb and
+          retain large amounts of water, making it useful for moisture management in hygiene products and soil conditioning
+          in agriculture.</li>
+        <li><strong>Ion-Exchange Properties:</strong> Banana fibers contain negatively charged hydroxyl (-OH) groups in
+          cellulose and hemicellulose, which can attract and bind heavy metal ions (e.g., lead (Pb), cadmium (Cd), chromium
+          (Cr)) from contaminated water.</li>
+        <li><strong>Porous Nature:</strong> The high surface area due to its fibrous structure increases adsorption
+          efficiency, allowing it to filter out oil, dyes, bacteria, and suspended solids.</li>
+        <li><strong>Biodegradability:</strong> Unlike synthetic filtration materials, banana fibers decompose naturally,
+          reducing environmental pollution after use.</li>
+      </ul>
+      
+      <h3 style="margin-bottom: 15px;">Manual and mechanical extraction</h3>
+      <h4 style="margin-bottom: 10px;">STEP 1 - One of the critical challenges in banana fiber processing</h4>
+      <p style="margin-bottom: 20px;">
+        Since banana fiber is not a well-established fiber, the advanced fiber extraction machineries are not developed yet.
+        Various attempts have been performed to develop different types of extractors; however, very few are commercially
+        available. The primitive and simple method of extraction is manual extraction done by direct extraction which is
+        carried out using sharp objects like a blade. It is common in villages and rural areas. This technique produces good
+        quality fiber, without much debris on the fiber surface; however, production is very low. In general, manual
+        extraction produces superior quality of fiber than machine extraction, since mechanical extraction may cause damage
+        to the fibers due to beating.
+        <br><br>
+        The key elements contributing to the mechanical qualities of manually extracted fibers are high cellulose content
+        and low microfibrillar angle, which are not disturbed during manual extraction. For the fiber extraction, after
+        harvesting the crop, the sheaths of the pseudo stems are separated manually. The machine operator holds one end of
+        the long sheaths of pseudo stem and inserts it inside the machine. The machine consists of a high-speed rotating
+        drum. Due to high-speed mechanical beating action, the debris associated with the pseudo stem is removed and the
+        fibers are getting separated. The separated fibers are manually combed using a metallic comb to remove the remnants
+        of the pseudo stem remains, if any. Finally, the fibers are washed and dried. While inserting the long sheaths
+        inside the decorticator, a major portion of the pseudo stem is converted into long fiber. Since dried sheaths cannot
+        be processed by a machine, decortication must be done as soon as the crop is harvested. One pseudo stem sheet can be
+        processed at a time because the majority of decorticators are made for batch processing.
+      </p>
+      
+      <h4 style="margin-bottom: 10px;">STEP 2 – Water removal</h4>
+      <p style="margin-bottom: 20px;">
+        The water retention requirement is highly dependent on the quality of the fiber provided by the decorticator. After
+        decortications and subsequent combing, if the banana fiber consists of fleshy remnants of the pseudo stem, the fiber
+        may be subjected to water retting to enhance the fiber quality. Although water removal is a slow degradation process
+        by microorganisms, extreme care should be taken up to avoid over retting of banana fiber, which may otherwise result
+        in degradation of cellulose and ultimately reduce the strength and luster of the fiber. The temperature, pH of
+        water, and micro-nutrients have a substantial effect on the quality of banana fiber.
+      </p>
+      
+      <h4 style="margin-bottom: 10px;">STEP 3 – Enzymatic extraction</h4>
+      <p style="margin-bottom: 20px;">
+        The extraction of banana pseudo stem fiber is a complex biochemical process that requires more than just a single
+        enzyme. Since enzymes are highly specific in their action, no single enzyme is capable of completely breaking down
+        the cementing materials—such as lignin, pectin, and hemicellulose—that hold the fiber together. To achieve effective
+        fiber extraction, a combination of enzymes is typically employed.
+      </p>
+      
+      <h4 style="margin-bottom: 10px;">STEP 4 - Preparation of the filter membrane using 50 grams of fibers</h4>
+      <p style="margin-bottom: 20px;">
+        ➢ Cut the long fibers into small pieces.<br>
+        <img src="images/only_fiber.jpg" alt="Filter Membrane Preparation"
+          style="display: block; margin: 0 auto 20px; max-width: 300px; border: 1px solid #ccc; border-radius: 5px;" />
+      
+      <p style="margin-bottom: 20px;">
+        ➢ Prepare boiling water, add 2 tablespoons of NaOH, and then add the chopped fibers (let it boil for a maximum of 3
+        hours).<br>
+      <p style="margin-bottom: 20px;"></p>
+      <img src="images/vessel.jpg" alt="Filter Membrane Preparation"
+        style="display: block; margin: 0 auto 20px; max-width: 300px; border: 1px solid #ccc; border-radius: 5px;" />
+      ➢ Strain, add them to a blender, and make a fine paste.<br>
+      ➢ Remove the excess water and flatten it on a muslin cloth.<br>
+      <p style="margin-bottom: 20px;"></p>
+      <img src="images/banana_fiber.jpg" alt="Filter Membrane Preparation"
+        style="display: block; margin: 0 auto 20px; max-width: 300px; border: 1px solid #ccc; border-radius: 5px;" />
+      ➢ Air-dry the membrane for 15–30 mins until completely dry. The membrane is ready; it can be molded into various
+      shapes as per the requirement and its application along with other filters like charcoal, alum, sand granules, etc.
+      <br><br>
+      Each layer is specifically designated as filtration of different particles and molecules.
+      </p>
+      
+      <h3 style="margin-bottom: 15px;">Why Enzymes Alone Are Not Enough for Fiber Extraction?</h3>
+      <p style="margin-bottom: 20px;">
+        Enzymes are not highly effective when applied directly to raw plant material for fiber extraction. Instead, they are
+        mainly used after the initial fiber separation process to remove residual binding materials. This post-retting
+        enzyme treatment helps to refine and improve the fiber’s properties, making it smoother, cleaner, and more suitable
+        for various applications.
+      </p>
+      
+      <h3 style="margin-bottom: 15px;">Commonly Used Enzymes in Banana Fiber Processing</h3>
+      <ul style="margin-bottom: 20px; list-style: disc; padding-left: 20px;">
+        <li><strong>Cellulase</strong> – Helps break down cellulose and improves fiber flexibility.</li>
+        <li><strong>Pectinase</strong> – Targets pectin, which acts as a glue between fiber cells, aiding in fiber separation.
+        </li>
+        <li><strong>Hemicellulose</strong> – Degrades hemicellulose, further loosening fiber bundles.</li>
+        <li><strong>Lignin Peroxidase</strong> – Breaks down lignin, enhancing fiber softness and usability.</li>
+      </ul>
+    </div>
+  </section>
+  
+  <!-- Applications Tab -->
+  <section id="uses" class="tab-content">
+    <h2 class="section-title">Applications</h2>
+    <div class="research-container">
+      <!-- Intro -->
+      <div class="research-intro">
+        <h3 class="main-heading">Applications of Banana Pseudostem Fibers in Water Filtration and Absorption</h3>
+        <p>
+          Banana pseudostem fibers have gained attention as a sustainable and biodegradable material for water filtration and absorption due to their high porosity, excellent water retention, and natural adsorption properties. Their unique composition—primarily cellulose, hemicellulose, and lignin—allows them to trap impurities effectively, making them useful in various environmental and industrial applications.
+        </p>
+      </div>
+      <!-- Water Filtration Card -->
+      <div class="application-card water-filtration">
+        <h4>Water Filtration Applications</h4>
+        <div class="application-content">
+          <div class="application-subsection">
+            <h5>Removal of Heavy Metals</h5>
+            <ul>
+              <li>
+                Banana fibers possess natural ion-exchange properties due to the presence of hydroxyl (-OH) and carboxyl (-COOH) groups that capture toxic metal ions like lead (Pb), cadmium (Cd), chromium (Cr), and arsenic (As).
+              </li>
+              <li>
+                Chemical modifications (e.g., acid or alkaline treatments) can enhance adsorption efficiency.
+              </li>
+            </ul>
+          </div>
+          <div class="application-subsection">
+            <h5>Filtration of Organic Pollutants &amp; Dyes</h5>
+            <ul>
+              <li>
+                With a high surface area and porosity, banana fibers effectively remove organic pollutants—such as pesticides, industrial dyes, and chemical residues—from wastewater.
+              </li>
+              <li>
+                Processing into activated carbon further boosts their pollutant-trapping capabilities.
+              </li>
+            </ul>
+          </div>
+          <div class="application-subsection">
+            <h5>Bacterial Filtration &amp; Antimicrobial Properties</h5>
+            <ul>
+              <li>
+                Studies indicate natural antimicrobial activity in banana fibers, which helps reduce bacterial contamination.
+              </li>
+              <li>
+                They can be combined with materials like chitosan or silver nanoparticles for enhanced microbial removal.
+              </li>
+            </ul>
+          </div>
         </div>
-    </section>
-    <!-- Extraction Tab -->
-    <section id="extraction" class="tab-content">
-        <h2 class="section-title">Extraction Process</h2>
-
+      </div>
+      <!-- Absorption Applications Card -->
+      <div class="application-card absorption">
+        <h4>Absorption Applications</h4>
+        <div class="application-content">
+          <div class="application-subsection">
+            <h5>Oil Spill Cleanup &amp; Industrial Waste Absorption</h5>
+            <ul>
+              <li>
+                The fibers absorb oils and hydrocarbons efficiently, making them suitable for cleaning oil spills in marine environments.
+              </li>
+              <li>
+                They can be used as biodegradable absorbent pads for industrial waste oils.
+              </li>
+            </ul>
+          </div>
+          <div class="application-subsection">
+            <h5>Moisture Absorption in Hygiene &amp; Medical Products</h5>
+            <ul>
+              <li>
+                High water retention makes banana fibers ideal for sanitary pads, diapers, and medical dressings, serving as a natural alternative to synthetic absorbents.
+              </li>
+              <li>
+                They improve comfort and biodegradability in disposable hygiene products.
+              </li>
+            </ul>
+          </div>
+          <div class="application-subsection">
+            <h5>Agricultural Soil Improvement &amp; Mulching</h5>
+            <ul>
+              <li>
+                The fibers help retain soil moisture, serving as an effective mulch.
+              </li>
+              <li>
+                They aid in controlling soil erosion and enhancing water retention in drought-prone areas.
+              </li>
+            </ul>
+          </div>
         </div>
-    </section>
-    <!-- Applications Tab -->
-    <section id="uses" class="tab-content">
-        <h2 class="section-title">Applications</h2>
-        <div class="research-grid">
-        </div class="research-card">
-        <h3class="card-title"><i class="Stay Tuned"></i>Comming Soon</h3>
+      </div>
+      <!-- Conclusion Section -->
+      <div class="conclusion-section">
+        <h4>Future Potential &amp; Conclusion</h4>
+        <p>
+          Banana pseudostem fibers offer a low-cost, eco-friendly, and biodegradable alternative to synthetic filtration and absorption materials. Their applications in water purification, oil spill cleanup, hygiene products, and agriculture highlight their versatility. With further research and processing optimizations, these fibers could become a widely adopted sustainable solution across industries.
+        </p>
+      </div>
+    </div>
+  </section>
+  
+  
+  <!-- About Tab -->
+  <section id="about" class="tab-content">
+    <div class="profile-section">
+      <img src="images/cute.jpg" alt="Researcher" class="profile-img">
+      <div class="profile-content">
+        <h2>Annushree Nimbalkar</h2>
+        <p>Biotechnology Researcher<br>
+          D.Y. Patil School of Biotechnology & Bioinformatics<br>
+          Part of Classroom Assignment</p>
+      </div>
+    </div>
+  </section>
+  <!-- Reference Tab -->
+  <section id="Reference" class="tab-content">
+    <!-- Reference content goes here -->
+  </section>
 
-            </div>
-    </section>
-    <!-- About Tab -->
-    <section id="about" class="tab-content">
-        <div class="profile-section">
-            <img src="images/cute.jpg" alt="Researcher" class="profile-img">
-            <div class="profile-content">
-                <h2>Annushree Nimbalkar</h2>
-                <p>Biotechnology Researcher<br>
-                    D.Y. Patil School of Biotechnology & Bioinformatics<br>
-                    Part of Classroom Assignment</p>
-            </div>
-        </div>
-    </section>
-    <section id="Reference" class="tab-content">
+</main>
+  
+<script>
+  // Function to switch tabs
+  function openTab(evt, tabId) {
+    // Hide all tab contents
+    document.querySelectorAll('.tab-content').forEach(tab => {
+      tab.classList.remove('active');
+    });
+    // Remove active class from all navigation items
+    document.querySelectorAll('.nav-item').forEach(btn => {
+      btn.classList.remove('active');
+    });
+    // Show the selected tab content
+    document.getElementById(tabId).classList.add('active');
+    // Add active class to the clicked navigation item
+    evt.currentTarget.classList.add('active');
+  }
 
-    </section>
-    <script>
-        function openTab(evt, tabId) {
-            // Hide all tab contents
-            document.querySelectorAll('.tab-content').forEach(tab => {
-                tab.classList.remove('active');
-            });
-            // Remove active class from all buttons
-            document.querySelectorAll('.nav-item').forEach(btn => {
-                btn.classList.remove('active');
-            });
-            // Show selected tab content
-            document.getElementById(tabId).classList.add('active');
-
-            // Add active class to clicked button
-            evt.currentTarget.classList.add('active');
-        }
-    </script>
+  // Initialize Particles.js
+  particlesJS("particles-js", {
+    "particles": {
+      "number": {
+        "value": 80,
+        "density": { "enable": true, "value_area": 800 }
+      },
+      "color": { "value": "#ffffff" },
+      "shape": {
+        "type": "circle",
+        "stroke": { "width": 0, "color": "#000000" },
+        "polygon": { "nb_sides": 5 }
+      },
+      "opacity": {
+        "value": 0.5,
+        "random": false,
+        "anim": { "enable": false, "speed": 1, "opacity_min": 0.1, "sync": false }
+      },
+      "size": {
+        "value": 3,
+        "random": true,
+        "anim": { "enable": false, "speed": 40, "size_min": 0.1, "sync": false }
+      },
+      "line_linked": {
+        "enable": true,
+        "distance": 150,
+        "color": "#ffffff",
+        "opacity": 0.4,
+        "width": 1
+      },
+      "move": {
+        "enable": true,
+        "speed": 6,
+        "direction": "none",
+        "random": false,
+        "straight": false,
+        "out_mode": "out",
+        "attract": { "enable": false, "rotateX": 600, "rotateY": 1200 }
+      }
+    },
+    "interactivity": {
+      "detect_on": "canvas",
+      "events": {
+        "onhover": { "enable": true, "mode": "grab" },
+        "onclick": { "enable": true, "mode": "push" },
+        "resize": true
+      },
+      "modes": {
+        "grab": { "distance": 140, "line_linked": { "opacity": 1 } },
+        "bubble": { "distance": 400, "size": 40, "duration": 2, "opacity": 8, "speed": 3 },
+        "repulse": { "distance": 200, "duration": 0.4 },
+        "push": { "particles_nb": 4 },
+        "remove": { "particles_nb": 2 }
+      }
+    },
+    "retina_detect": true
+  });
+</script>
+  
 </body>
-
 </html>
